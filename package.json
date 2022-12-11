@@ -4,6 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "run": "node scripts/backup.js "
+  },
+  "devDependencies": {
+    "@supercharge/filesystem": "^2.3.0",
+    "dotenv": "^16.0.3",
+    "fs-extra": "^11.1.0",
+    "input": "^1.0.1",
+    "notion-backup": "^1.3.1",
+    "telebot": "^1.4.1",
+    "telegram": "^2.14.7"
   }
 }
