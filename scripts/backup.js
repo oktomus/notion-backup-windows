@@ -1,6 +1,9 @@
 const Fs = require("@supercharge/filesystem");
+const fs = require('fs');
+
 const execSync = require("child_process").execSync;
 require('dotenv').config();
+const runBackup = require("./run-backup.js").runBackup;
 const TeleBot = require('telebot');
 
 const bot = new TeleBot(process.env.TELEGRAM_BOT_API_TOKEN);
@@ -30,11 +33,22 @@ async function run() {
   }
 
   //=> Backup.
-  execSync(`notion-backup`, {stdio: [0, 1, 2]});
+  if (fs.existsSync("./markdown-old.zip")) {
+    fs.rmSync("./markdown-old.zip", {recursive: true, force: true});
+  }
+
+  if (fs.existsSync("./markdown.zip")) {
+    fs.renameSync("./markdown.zip", "./markdown-old.zip");
+  }
+
+  await runBackup();
+
   await Fs.touch(`./touch.txt`)
+
+  log("Backup done.");
 }
 
-run().then(r => r).catch(e => {
+run().catch(e => {
   log(`❌: ${e.message}`);
   console.error(e);
 });
