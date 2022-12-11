@@ -1,6 +1,7 @@
 - Copy `.env.defaults` to `.env`
 - Get your `NOTION_TOKEN` and `NOTION_SPACE_ID` by following this [article](https://artur-en.medium.com/automated-notion-backups-f6af4edc298d)
 - [Create a telegram bot](https://dev.to/poojaghodmode/telebot-using-python-3akh), and get your `TELEGRAM_BOT_API_TOKEN` and [`TELEGRAM_BOT_CHAT_ID`](https://www.alphr.com/find-chat-id-telegram/)
+- [Schedule a task](https://superuser.com/questions/345319/how-to-schedule-a-windows-task-to-repeat-every-day-within-a-time-range) to run `run.bat`
 
 # Some links
 
